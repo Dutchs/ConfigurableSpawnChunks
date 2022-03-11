@@ -23,8 +23,8 @@ apply plugin: 'org.parchmentmc.librarian.forgegradle'
 apply plugin: 'org.spongepowered.mixin'
 apply plugin: 'eclipse'
 
-version = '1.0.0'
-//group = 'com.dutchs.configspawnchunk'
+version = "${version}"
+group = "com.${author}.${modid}"
 archivesBaseName = "${fileName}-${mcVersion}"
 
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
@@ -182,6 +182,9 @@ dependencies {
 mixin {
     add sourceSets.main, "${modid}.refmap.json"
     config "${modid}.mixins.json"
+//    debug.verbose = true
+//    debug.export = true
+//    dumpTargetOnFailure = true
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
