@@ -32,7 +32,7 @@ public class MinecraftServerMixin {
     @ModifyConstant(method = "prepareLevels(Lnet/minecraft/server/level/progress/ChunkProgressListener;)V", constant = @Constant(intValue = 441))
     private int onPrepareLevels_TickingGenerated_Constant(int value) {
         int generated = ServerLifecycleHooks.getCurrentServer().overworld().getChunkSource().getTickingGenerated();
-        ConfigurableSpawnChunks.logInfo("GEN: " + generated);
+        //ConfigurableSpawnChunks.logInfo("GEN: " + generated);
         if (generated >= ConfigurableSpawnChunks.spawnChunkCount) {
             ConfigurableSpawnChunks.logInfo("Generated: " + generated + " Chunks");
         }

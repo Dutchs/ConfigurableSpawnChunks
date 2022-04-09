@@ -5,10 +5,15 @@
 	"compatibilityLevel": "JAVA_17",
 	"refmap": "configspawnchunk.refmap.json",
 	"mixins": [
-		"MinecraftServerMixin",
-		"LevelLoadingScreenMixin"
+		"MinecraftServerMixin"
 	],
-	"client": [],
+	"client": [
+		"LevelLoadingScreenMixin",
+		"ScreenMixin",
+		"WorldListEntryMixin",
+		"CreateWorldScreenMixin",
+		"MinecraftMixin"
+	],
 	"injectors": {
 		"defaultRequire": 1
 	}
