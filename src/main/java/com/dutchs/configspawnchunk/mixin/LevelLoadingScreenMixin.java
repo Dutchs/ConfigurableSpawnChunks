@@ -31,10 +31,11 @@ public abstract class LevelLoadingScreenMixin extends ScreenMixin {
 
         int wCentre = this.width / 2;
         int hCentre = this.height / 2;
-        int hOffset = 15; //TODO: figure out a good offset based on chunkDistance
+        int actualRadius = Math.max((ConfigHandler.chunkDistance * 2) - 1, 0);
+        int hOffset = 35 + actualRadius; //15
         int chunkSize = 2; //2
         int chunkBorder = 0; //0
-        LevelLoadingScreen.renderChunks(pPoseStack, this.progressListener, wCentre, hCentre + hOffset, chunkSize, chunkBorder);
+        LevelLoadingScreen.renderChunks(pPoseStack, this.progressListener, wCentre, hCentre, chunkSize, chunkBorder);
 
         String progressText = "";
 
@@ -52,6 +53,6 @@ public abstract class LevelLoadingScreenMixin extends ScreenMixin {
             progressText = Mth.clamp(this.progressListener.getProgress(), 0, 100) + "%";
         }
 
-        GuiComponent.drawCenteredString(pPoseStack, this.font, progressText, wCentre, hCentre - 9 / 2 - hOffset, 16777215);
+        GuiComponent.drawCenteredString(pPoseStack, this.font, progressText, wCentre, hCentre - hOffset, 16777215); //hCentre - 9 / 2 - hOffset
     }
 }
